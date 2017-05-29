@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/forewrapper.css">
+<title>首页</title>
+<style>
+html,body {
+	height: 100%;
+	width: 100%;
+	margin: 0 0;
+	padding: 1px;
+	box-sizing:border-box;
+}
+@font-face {
+	font-family: 'txzqgbj';
+	src: url('font/txzqgbj/txzqgbj.eot?#iefix') format('embedded-opentype'),
+		 url('font/txzqgbj/txzqgbj.woff') format('woff'),
+		 url('font/txzqgbj/txzqgbj.ttf') format('truetype'),
+		 url('font/txzqgbj/txzqgbj.svg#myfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'xct';
+	src: url('font/xct/xct.eot?#iefix') format('embedded-opentype'),
+		 url('font/xct/xct.woff') format('woff'),
+		 url('font/xct/xct.ttf') format('truetype'),
+		 url('font/xct/xct.svg#myfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'poiretone';
+	src: url('font/poiretone/POIRETONE-REGULAR.eot?#iefix') format('embedded-opentype'),
+		 url('font/poiretone/POIRETONE-REGULAR.woff') format('woff'),
+		 url('font/poiretone/POIRETONE-REGULAR.TTF') format('truetype'),
+		 url('font/poiretone/POIRETONE-REGULAR.svg#myfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'taho';
+	src: url('font/taho/tahoma.eot');
+	src: url('font/taho/tahoma.eot?#iefix') format('embedded-opentype'),
+		 url('font/taho/tahoma.woff') format('woff'),
+		 url('font/taho/tahoma.TTF') format('truetype'),
+		 url('font/taho/tahoma.svg#myfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'youyuan';
+	src: url('font/youyuan/youyuan.eot');
+	src: url('font/youyuan/youyuan.eot?#iefix') format('embedded-opentype'),
+		 url('font/youyuan/youyuan.woff') format('woff'),
+		 url('font/youyuan/youyuan.TTF') format('truetype'),
+		 url('font/youyuan/youyuan.svg#myfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+div {
+	cursor: default;
+}
+div#container {
+	/*background-color: rgba(0,0,0,0.3);*/
+	background-image: url('images/indexbg.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+	transition: all 2s;
+	-webkit-transition: all 2s;
+	-moz-transition: all 2s;
+	-ms-transition: all 2s;
+}
+div#container.show {
+	border-radius: 0 120px 0 120px;
+}
+div#word {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	color: #F9F9F9;
+	line-height: 50px;
+	font-size: 30px;
+	font-family: "youyuan";
+	opacity: 0;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+}
+div#word span {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+div#toSys {
+	position: fixed;
+	bottom: 10%;
+	right: 10%;
+	color: #F9F9F9;
+	font-size: 18px;
+	font-family: "youyuan";
+	transform: translate(-20px,0);
+	-webkit-transform: translate(-20px,0);
+	-moz-transform: translate(-20px,0);
+	-ms-transform: translate(-20px,0);
+	opacity: 0;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-ms-transition: all .5s;
+	-moz-transition: all .5s;
+	cursor: pointer;
+}
+div#toSys.show {
+	opacity: 1;
+	transform: translate(0,0);
+	-webkit-transform: translate(0,0);
+	-moz-transform: translate(0,0);
+	-ms-transform: translate(0,0);
+}
+div#toSys:hover {
+	transform: translate(20px,0);
+	-webkit-transform: translate(20px,0);
+	-moz-transform: translate(20px,0);
+	-ms-transform: translate(20px,0);
+}
+div.title {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	color: #f9f9f9;
+	opacity: 0;
+	/*font-weight: bold;*/
+	transition: opacity 2s;
+	-webkit-transition: opacity 2s;
+	-moz-transition: opacity 2s;
+	-ms-transition: opacity 2s;
+	font-size: 30px;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	font-family: "youyuan";
+}
+div.title.show {
+	opacity: 1;
+}
+div.title.hidden {
+	opacity: 0;
+}
+div.logo {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: #F9F9F9;
+	position: fixed;
+	top: 60%;
+	left: 47%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+.emoji .eyes {
+  position: absolute;
+  left: 50%;
+  width: 55px;
+  top: 45px;
+}
+.emoji .eyes::before, .emoji .eyes::after {
+  content: '';
+  background: black;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+.emoji .eyes::before {
+  float: left;
+}
+.emoji .eyes::after {
+  float: right;
+  left: 100px;
+  top: 50px;
+}
+.emoji.happy {
+  transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -webkit-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  /*background: #47cf73;*/
+}
+.emoji.happy .mouth, .emoji.happy .eyes {
+  animation: happy 1s ease-in-out infinite;
+  -webkit-animation: happy 1s ease-in-out infinite;
+  -moz-animation: happy 1s ease-in-out infinite;
+  -ms-animation: happy 1s ease-in-out infinite;
+}
+.emoji.happy .eyes::before, .emoji.happy .eyes::after {
+  height: 15px;
+  -webkit-animation: blinkeyes 2s ease-in-out infinite;
+  -moz-animation: blinkeyes 2s ease-in-out infinite;
+  -ms-animation: blinkeyes 2s ease-in-out infinite;
+  animation: blinkeyes 2s ease-in-out infinite;
+}
+.emoji.happy .mouth {
+  position: absolute;
+  left: 50%;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  background: black;
+  width: 30px;
+  height: 15px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.emoji.happy .mouth::after {
+  content: '';
+  position: absolute;
+  background: red;
+  width: 10px;
+  height: 5px;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  border-radius: 50%;
+}
+@keyframes happy {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  60% {
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+@-webkit-keyframes happy {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  60% {
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+@-moz-keyframes happy {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  60% {
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+@-ms-keyframes happy {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  60% {
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes blinkeyes {
+  0% {
+    transform: scaleY(1);
+  }
+  97% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+@-webkit-keyframes blinkeyes {
+  0% {
+    transform: scaleY(1);
+  }
+  97% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+@-moz-keyframes blinkeyes {
+  0% {
+    transform: scaleY(1);
+  }
+  97% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+@-ms-keyframes blinkeyes {
+  0% {
+    transform: scaleY(1);
+  }
+  97% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+</style>
+</head>
+<body>
+<div id="container">
+<div id="word">
+	hjj:个人原创 ,如有雷同纯属巧合
+</div>
+<div class="title">我不想每天起床一睁眼</div>
+<div class="title">就看到我的秘书,执行官,财务</div>
+<div class="title">直挺挺的站在我面前汇报一天的工作</div>
+<div class="title">这将是多么的无趣啊</div>
+<div class="title">好了...</div>
+<div class="title">梦醒了,我要去上班了</div>
+<div class="logo emoji happy">
+	<span class="eyes"></span>
+	<span class="mouth"></span>
+</div>
+<div id="toSys">进入系统  &gt; </div>
+</div>
+<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+	(function($) {
+		$.fn.typeWriter = function() {
+			this.each(function() {
+				var $ele = $(this), str = $ele.html(), progress = 0;
+				$ele.html('');
+				var timer = setInterval(function() {
+					var current = str.substr(progress, 1);
+					if (current == '<') {
+						progress = str.indexOf('>', progress) + 1;
+					} else {
+						progress++;
+					}
+					$ele.html(str.substring(0, progress)
+							+ (progress & 1 ? '_' : ''));
+					if (progress >= str.length) {
+						clearInterval(timer);
+					}
+				}, 75);
+			});
+			return this;
+		};
+		$.fn.fadeWriter = function() {
+			var $this = $(this);
+			$this.each(function(index,item) {
+				if(index == 0) {
+					$(item).addClass("show");
+				} else {
+					var $next = $(item).next();
+					var $prev = $(item).prev();
+					setTimeout(function(){
+						$prev.addClass("hidden");
+					},(index*2+index-1)*1000);
+					setTimeout(function(){
+						$(item).addClass("show");
+						if(index == $this.length-1) {
+							$(item).on("transitionend webkitTransitionEnd",$.fn.fadeWriter.EndEvent);
+						}
+					},(index*2+index)*1000);
+				}
+			});
+		};
+		$.fn.fadeWriter.EndEvent = function() {
+			console.log("结束");
+		};
+	})(jQuery);
+	
+	function beginWord() {
+		$("#word").css("opacity","1");
+		$("#word").typeWriter();
+	}
+	$.fn.fadeWriter.EndEvent = function() {
+		$(".title:last").addClass("hidden");
+		$(".title:last").on("transitionend webkitTransitionEnd",beginWord);
+	}
+	$(function() {
+		$(".title").fadeWriter();
+		$("#toSys").addClass("show");
+		$("div#container").addClass("show");
+		$("#toSys").on("click",function() {window.location.href="common/toMain.do"});
+	});
+</script>
+</body>
+</html>

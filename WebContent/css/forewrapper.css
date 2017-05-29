@@ -1,0 +1,33 @@
+@font-face {
+	font-family: 'youyuan';
+	src: url('../font/youyuan/youyuan.eot');
+	src: url('../font/youyuan/youyuan.eot?#iefix') format('embedded-opentype'),
+		 url('../font/youyuan/youyuan.woff') format('woff'),
+		 url('../font/youyuan/youyuan.TTF') format('truetype'),
+		 url('../font/youyuan/youyuan.svg#myfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+* {
+	font-family: "youyuan";
+}
+.bgcolor-dark {
+	background-color: #363636;
+}
+.bgcolor-gray {
+	background-color: #ABABAB;
+}
+.bgcolor-light-gray {
+	background-color: #F9F9F9;
+}
+.fncolor-bright {
+	color: #FFC22B;
+}
+.color-dark {
+	background-color: #363636;
+	color: #FFC22B;
+}
+.color-light-gray {
+	background-color: #F9F9F9;
+	color: #000;
+}
